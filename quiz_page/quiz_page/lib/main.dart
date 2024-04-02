@@ -32,29 +32,34 @@ class QuestionModel {
 class _QuizAppState extends State {
   List allQuestions = [
     const QuestionModel(
-      question: "Who is the founder of Microsoft?",
-      options: ["Steve Jobs", "Jeff Bezos", "Bill Gates", "Elon Musk"],
-      answerIndex: 2,
-    ),
-    const QuestionModel(
-      question: "Who is the founder of Apple?",
-      options: ["Steve Jobs", "Jeff Bezos", "Bill Gates", "Elon Musk"],
+      question:
+          "What is the time complexity of inserting an element at the end of an array of size N?",
+      options: ["O(1)", "O(log N)", "O(N)", "O(N^2)"],
       answerIndex: 0,
     ),
     const QuestionModel(
-      question: "Who is the founder of Amazon?",
-      options: ["Steve Jobs", "Jeff Bezos", "Bill Gates", "Elon Musk"],
+      question:
+          " What data structure uses FIFO (First In, First Out) principle?",
+      options: ["Queue", "Stack", "Linked List", "Tree"],
       answerIndex: 1,
     ),
     const QuestionModel(
-      question: "Who is the founder of Tesla?",
-      options: ["Steve Jobs", "Jeff Bezos", "Bill Gates", "Elon Musk"],
+      question:
+          "What data structure uses FIFO (First In, First Out) principle?",
+      options: ["Queue", "Stack", "Linked List", "Tree"],
+      answerIndex: 2,
+    ),
+    const QuestionModel(
+      question:
+          "What is the worst-case time complexity of searching for an element in a binary search tree (BST) of height H?",
+      options: ["O(H)", "O(log N)", "O(N)", "O(NlogN)"],
+      answerIndex: 0,
+    ),
+    const QuestionModel(
+      question:
+          " Which data structure is typically used to implement priority queues?",
+      options: ["Stack", "Queue", "Linked List", "Heap"],
       answerIndex: 3,
-    ),
-    const QuestionModel(
-      question: "Who is the founder of Google?",
-      options: ["Steve Jobs", "Lary Page", "Bill Gates", "Elon Musk"],
-      answerIndex: 1,
     ),
   ];
 
@@ -99,17 +104,18 @@ class _QuizAppState extends State {
   Scaffold isQuestionScreen() {
     if (questionScreen == true) {
       return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text(
             "QuizApp",
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.w800,
-              color: Colors.orange,
+              color: Colors.black,
             ),
           ),
           centerTitle: true,
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.white,
         ),
         body: Column(children: [
           const SizedBox(height: 20),
@@ -156,7 +162,7 @@ class _QuizAppState extends State {
               }
             },
             child: Text(
-              "A.${allQuestions[questionIndex].options[0]}",
+              "A. ${allQuestions[questionIndex].options[0]}",
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
@@ -176,7 +182,7 @@ class _QuizAppState extends State {
               }
             },
             child: Text(
-              "B.${allQuestions[questionIndex].options[1]}",
+              "B. ${allQuestions[questionIndex].options[1]}",
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
@@ -196,7 +202,7 @@ class _QuizAppState extends State {
               }
             },
             child: Text(
-              "C.${allQuestions[questionIndex].options[2]}",
+              "C. ${allQuestions[questionIndex].options[2]}",
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
@@ -216,7 +222,7 @@ class _QuizAppState extends State {
               }
             },
             child: Text(
-              "D.${allQuestions[questionIndex].options[3]}",
+              "D. ${allQuestions[questionIndex].options[3]}",
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
@@ -228,7 +234,11 @@ class _QuizAppState extends State {
           onPressed: () {
             checkValidation();
           },
-          child: const Icon(Icons.forward),
+          backgroundColor: Colors.grey,
+          child: const Icon(
+            Icons.forward,
+            color: Colors.black,
+          ),
         ),
       );
     } else {
@@ -243,7 +253,7 @@ class _QuizAppState extends State {
             ),
           ),
           centerTitle: true,
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.white,
         ),
         body: Center(
           child: Column(
